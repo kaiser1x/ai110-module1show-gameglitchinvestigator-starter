@@ -11,7 +11,7 @@ def parse_guess(raw: str):
     """
     raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
 
-
+#FIXME: This function is not working as intended. It should return "Too High" if the guess is higher than the secret, and "Too Low" if the guess is lower than the secret.
 def check_guess(guess, secret):
     """
     Compare guess to secret and return (outcome, message).
