@@ -12,11 +12,15 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 Document at least 3 bugs you found. Add rows as needed.
 
+Refer to 50 as the secret number.
+
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+| 70        Go Lower            Go Higher        Out of attempts! The secret was 50. Score: -35
+| -101      Invalid Input      📉 Go LOWER!      Out of attempts! The secret was 74. Score: -35 
+| 1000     Invalid Input       📉 Go LOWER!      Out of attempts! The secret was 65. Score: -35
+
+When I first ran the game, the Streamlit interface loaded successfully, but interacting with the core gameplay revealed immediate logical errors and highly erratic behavior. The most glaring issue right from the start was that the feedback hints were completely reversed, telling me to guess higher when my input was already much higher than the target number. Additionally, the game would mysteriously break or mutate the secret value on even-numbered attempts, making the experience feel entirely random and broken to the player. Finally, clicking the "New Game" button failed to clear the previous victory message, meaning old game data remained stuck on the screen because the session state was not resetting properly.
 
 ---
 

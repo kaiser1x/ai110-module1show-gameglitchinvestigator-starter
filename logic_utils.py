@@ -11,16 +11,36 @@ def parse_guess(raw: str):
     """
     raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
 
-#FIXME: This function is not working as intended. It should return "Too High" if the guess is higher than the secret, and "Too Low" if the guess is lower than the secret.
 def check_guess(guess, secret):
     """
     Compare guess to secret and return (outcome, message).
 
     outcome examples: "Win", "Too High", "Too Low"
     """
-    raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
+    if guess == secret:
+        return "Win", "🎉 Correct!"
+    if guess > secret:
+        return "Too High", "📉 Go LOWER!"
+    return "Too Low", "📈 Go HIGHER!"
 
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
     """Update score based on outcome and attempt number."""
     raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
+
+
+def reset_game_state(low: int, high: int):
+    """Return fresh game state for a new game.
+
+    All per-game keys reset so a finished game (won/lost) can restart.
+    secret drawn from the difficulty range [low, high], not hardcoded.
+    """
+    import random
+
+    return {
+        "attempts": 0,
+        "secret": random.randint(low, high),
+        "score": 0,
+        "status": "playing",
+        "history": [],
+    }
