@@ -31,25 +31,6 @@ def parse_guess(raw: str):
 
     return True, value, None
 
-#FIXME: This function is not working as intended. It should return "Too High" if the guess is higher than the secret, and "Too Low" if the guess is lower than the secret.
-def check_guess(guess, secret):
-    if guess == secret:
-        return "Win", "🎉 Correct!"
-
-    try:
-        if guess > secret:
-            return "Too High", "📈 Go HIGHER!"
-        else:
-            return "Too Low", "📉 Go LOWER!"
-    except TypeError:
-        g = str(guess)
-        if g == secret:
-            return "Win", "🎉 Correct!"
-        if g > secret:
-            return "Too High", "📈 Go HIGHER!"
-        return "Too Low", "📉 Go LOWER!"
-
-
 def update_score(current_score: int, outcome: str, attempt_number: int):
     if outcome == "Win":
         points = 100 - 10 * (attempt_number + 1)
